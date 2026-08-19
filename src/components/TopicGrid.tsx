@@ -22,6 +22,7 @@ export function TopicGrid() {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  unoptimized
                   sizes="(max-width: 640px) 100vw, 400px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />

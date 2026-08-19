@@ -125,6 +125,36 @@ async function run() {
   }
   console.log(`✓ ${titles.size} unique page titles`);
 
+  const IMAGE_PATHS = [
+    "/images/hero.jpg",
+    "/images/before-venue.jpg",
+    "/images/after-venue.jpg",
+    "/images/eventbelysning.jpg",
+    "/images/uplights.jpg",
+    "/images/scenljus.jpg",
+    "/images/brollop.jpg",
+    "/images/foretagsevent.jpg",
+    "/images/effektljus.jpg",
+    "/images/haze.jpg",
+    "/images/guider.jpg",
+  ];
+
+  for (const imagePath of IMAGE_PATHS) {
+    try {
+      const { status } = await fetch(imagePath);
+      if (status === 200) {
+        passed++;
+      } else {
+        console.log(`✗ ${imagePath} → ${status} (expected 200)`);
+        failed++;
+      }
+    } catch (e) {
+      console.log(`✗ ${imagePath} → ERROR: ${e.message}`);
+      failed++;
+    }
+  }
+  console.log(`✓ ${IMAGE_PATHS.length} static images reachable`);
+
   console.log(`\n=== Results: ${passed} passed, ${failed} failed ===`);
   process.exit(failed > 0 ? 1 : 0);
 }

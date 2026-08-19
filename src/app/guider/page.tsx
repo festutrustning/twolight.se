@@ -55,6 +55,7 @@ export default function GuiderPage() {
                         src={image.src}
                         alt={image.alt}
                         fill
+                        unoptimized
                         sizes="(max-width: 768px) 100vw, 700px"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />

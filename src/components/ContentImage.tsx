@@ -35,6 +35,7 @@ export function ContentImage({
           src={image.src}
           alt={image.alt}
           fill
+          unoptimized
           sizes={
             aspect === "hero"
               ? "(max-width: 768px) 100vw, 1280px"
@@ -86,11 +87,12 @@ type HeroBackgroundProps = {
 
 export function HeroBackground({ image }: HeroBackgroundProps) {
   return (
-    <>
+    <div className="relative h-full w-full">
       <Image
         src={image.src}
         alt=""
         fill
+        unoptimized
         priority
         sizes="100vw"
         className="object-cover object-center opacity-40"
@@ -98,6 +100,6 @@ export function HeroBackground({ image }: HeroBackgroundProps) {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#08080c]/60 via-[#08080c]/80 to-[#08080c]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,184,109,0.08),transparent_60%)]" />
-    </>
+    </div>
   );
 }
