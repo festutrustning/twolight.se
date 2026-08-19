@@ -1,4 +1,4 @@
-import { SITE } from "./site";
+import { CONTACT, SITE } from "./site";
 import { absoluteUrl } from "./seo";
 
 export function organizationSchema() {
@@ -9,6 +9,22 @@ export function organizationSchema() {
     url: SITE.url,
     description: SITE.description,
     logo: absoluteUrl("/logo.svg"),
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: CONTACT.street,
+      postalCode: CONTACT.postalCode,
+      addressLocality: CONTACT.city,
+      addressCountry: CONTACT.country,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CONTACT.phoneHref.replace("tel:", ""),
+      email: CONTACT.email,
+      contactType: "customer service",
+      areaServed: "SE",
+      availableLanguage: "Swedish",
+    },
+    legalName: CONTACT.company,
   };
 }
 

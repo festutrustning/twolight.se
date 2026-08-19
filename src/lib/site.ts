@@ -1,3 +1,11 @@
+import {
+  FESTUTRUSTNING_DESTINATIONS,
+  type FestutrustningLinkKey,
+  getFestutrustningUrl,
+} from "./festutrustning-links";
+
+export type { FestutrustningLinkKey };
+
 export const SITE = {
   name: "Twolight",
   domain: "twolight.se",
@@ -9,13 +17,25 @@ export const SITE = {
   language: "sv",
 } as const;
 
+export const CONTACT = {
+  company: "Enta Sverige AB",
+  street: "Lockarpsvägen 6B",
+  postalCode: "213 76",
+  city: "Malmö",
+  country: "SE",
+  phone: "0766777232",
+  phoneDisplay: "076-677 72 32",
+  phoneHref: "tel:+46766777232",
+  email: "info@festutrustning.se",
+  emailHref: "mailto:info@festutrustning.se",
+} as const;
+
 export const EXTERNAL = {
   festutrustning: {
     base: "https://festutrustning.se",
-    uplights: "https://festutrustning.se/hyra-uplights",
-    ljus: "https://festutrustning.se/hyra-ljus",
-    haze: "https://festutrustning.se/hyra-haze",
-    effektljus: "https://festutrustning.se/hyra-effektljus",
+    uplights: FESTUTRUSTNING_DESTINATIONS.uplights.url,
+    haze: FESTUTRUSTNING_DESTINATIONS.haze.url,
+    effectLighting: FESTUTRUSTNING_DESTINATIONS.effectLighting.url,
   },
   skaneevent: {
     base: "https://skaneevent.se",
@@ -23,6 +43,8 @@ export const EXTERNAL = {
     foretagsevent: "https://skaneevent.se/foretagsevent",
   },
 } as const;
+
+export { getFestutrustningUrl };
 
 export type OutboundTarget = "festutrustning" | "skaneevent";
 

@@ -1,4 +1,5 @@
 import type { OutboundTarget } from "./site";
+import { EXTERNAL } from "./site";
 
 /**
  * Case study datamodell — INGA publicerade case utan verkligt innehåll.
@@ -34,29 +35,29 @@ export type OutboundHandoff = {
   context: string;
 };
 
-/** Dokumenterade cross-property länkar i MVP */
+/** Dokumenterade cross-property länkar i MVP — URLs via EXTERNAL registry */
 export const DOCUMENTED_HANDOFFS: OutboundHandoff[] = [
   {
     target: "festutrustning",
-    url: "https://festutrustning.se/hyra-uplights",
+    url: EXTERNAL.festutrustning.uplights,
     linkText: "Se uplights hos Festutrustning",
     context: "/ljussattning-brollop/ — efter bröllopsguide om uplights",
   },
   {
     target: "festutrustning",
-    url: "https://festutrustning.se/hyra-uplights",
+    url: EXTERNAL.festutrustning.uplights,
     linkText: "Hyra uplights — Festutrustning",
     context: "/uplights/ — efter uplights-guide",
   },
   {
     target: "festutrustning",
-    url: "https://festutrustning.se/hyra-effektljus",
+    url: EXTERNAL.festutrustning.effectLighting,
     linkText: "Se effektljus — Festutrustning",
     context: "/effektljus/ — efter effektljus-guide",
   },
   {
     target: "festutrustning",
-    url: "https://festutrustning.se/hyra-haze",
+    url: EXTERNAL.festutrustning.haze,
     linkText: "Hyra haze — Festutrustning",
     context: "/haze/ — efter haze-guide",
   },

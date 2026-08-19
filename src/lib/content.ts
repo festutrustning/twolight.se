@@ -1,4 +1,4 @@
-import type { OutboundTarget } from "./site";
+import type { FestutrustningLinkKey } from "./site";
 
 export type ContentSection = {
   id: string;
@@ -7,13 +7,23 @@ export type ContentSection = {
   list?: string[];
 };
 
-export type HandoffCta = {
+type FestutrustningHandoff = {
   heading: string;
   body: string;
   linkText: string;
-  linkUrl: string;
-  target: OutboundTarget;
+  target: "festutrustning";
+  festutrustningLink: FestutrustningLinkKey;
 };
+
+type SkaneeventHandoff = {
+  heading: string;
+  body: string;
+  linkText: string;
+  target: "skaneevent";
+  linkUrl: string;
+};
+
+export type HandoffCta = FestutrustningHandoff | SkaneeventHandoff;
 
 export type ContentPage = {
   slug: string;
@@ -129,8 +139,8 @@ export const PAGES: Record<string, ContentPage> = {
       heading: "Vill du hyra uplights till bröllopet?",
       body: "När du vet vilken känsla du vill skapa kan du jämföra utrustning och paket.",
       linkText: "Se uplights hos Festutrustning",
-      linkUrl: "https://festutrustning.se/hyra-uplights",
       target: "festutrustning",
+      festutrustningLink: "uplights",
     },
     isGuide: true,
   },
@@ -234,8 +244,8 @@ export const PAGES: Record<string, ContentPage> = {
       heading: "Behöver du uplights?",
       body: "När du vet antal, färg och placering kan du hitta rätt utrustning.",
       linkText: "Hyra uplights — Festutrustning",
-      linkUrl: "https://festutrustning.se/hyra-uplights",
       target: "festutrustning",
+      festutrustningLink: "uplights",
     },
   },
 
@@ -325,8 +335,8 @@ export const PAGES: Record<string, ContentPage> = {
       heading: "Ska du använda effektljus på nästa event?",
       body: "Moving heads och effekter kräver rätt modeller för lokalens storlek.",
       linkText: "Se effektljus — Festutrustning",
-      linkUrl: "https://festutrustning.se/hyra-effektljus",
       target: "festutrustning",
+      festutrustningLink: "effectLighting",
     },
   },
 
@@ -374,8 +384,8 @@ export const PAGES: Record<string, ContentPage> = {
       heading: "Behöver du haze-utrustning?",
       body: "Rätt maskin och vätska för lokalens storlek och regler.",
       linkText: "Hyra haze — Festutrustning",
-      linkUrl: "https://festutrustning.se/hyra-haze",
       target: "festutrustning",
+      festutrustningLink: "haze",
     },
   },
 };

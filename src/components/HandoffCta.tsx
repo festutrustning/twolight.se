@@ -1,6 +1,7 @@
 "use client";
 
 import type { HandoffCta } from "@/lib/content";
+import { getFestutrustningUrl } from "@/lib/site";
 import { trackEvent } from "@/lib/analytics";
 
 type HandoffCtaProps = {
@@ -8,7 +9,15 @@ type HandoffCtaProps = {
   pagePath: string;
 };
 
+function resolveHandoffUrl(handoff: HandoffCta): string {
+  if (handoff.target === "festutrustning") {
+    return getFestutrustningUrl(handoff.festutrustningLink);
+  }
+  return handoff.linkUrl;
+}
+
 export function HandoffCtaBlock({ handoff, pagePath }: HandoffCtaProps) {
+  const linkUrl = resolveHandoffUrl(handoff);
   const eventName =
     handoff.target === "festutrustning"
       ? "outbound_click_festutrustning"
@@ -19,14 +28,14 @@ export function HandoffCtaBlock({ handoff, pagePath }: HandoffCtaProps) {
       <h2 className="font-display text-xl text-[#f5f0e8]">{handoff.heading}</h2>
       <p className="mt-3 text-sm leading-relaxed text-[#9a958d]">{handoff.body}</p>
       <a
-        href={handoff.linkUrl}
+        href={linkUrl}
         rel="noopener noreferrer"
         target="_blank"
         onClick={() =>
           trackEvent({
             name: eventName,
             params: {
-              link_url: handoff.linkUrl,
+              link_url: linkUrl,
               link_text: handoff.linkText,
               page_path: pagePath,
             },

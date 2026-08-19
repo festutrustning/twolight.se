@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "verify": "node scripts/verify-mvp.mjs"
+    "verify": "node scripts/verify-mvp.mjs",
+    "verify:links": "node scripts/verify-external-links.mjs"
   },
   "dependencies": {
     "next": "16.3.1",
