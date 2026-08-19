@@ -4,16 +4,15 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
-  useSyncExternalStore,
   useState,
   type ReactNode,
 } from "react";
 import {
   acceptAllConsent,
-  getConsentServerSnapshot,
-  getConsentSnapshot,
   hasAnalyticsConsent,
+  readConsent,
   rejectOptionalConsent,
   subscribeConsent,
   writeConsent,
@@ -36,12 +35,15 @@ type CookieConsentContextValue = {
 const CookieConsentContext = createContext<CookieConsentContextValue | null>(null);
 
 export function CookieConsentProvider({ children }: { children: ReactNode }) {
-  const consent = useSyncExternalStore(
-    subscribeConsent,
-    getConsentSnapshot,
-    getConsentServerSnapshot
-  );
+  const [consent, setConsent] = useState<CookieConsent | null>(null);
+  const [isReady, setIsReady] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+
+  useEffect(() => {
+    setConsent(readConsent());
+    setIsReady(true);
+    return subscribeConsent(() => setConsent(readConsent()));
+  }, []);
 
   const persist = useCallback((next: CookieConsent) => {
     writeConsent(next);
@@ -65,9 +67,9 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   const value = useMemo(
     () => ({
       consent,
-      isReady: true,
-      showBanner: consent === null,
-      analyticsAllowed: hasAnalyticsConsent(consent),
+      isReady,
+      showBanner: isReady && consent === null,
+      analyticsAllowed: isReady && hasAnalyticsConsent(consent),
       acceptAll,
       rejectOptional,
       savePreferences,
@@ -75,7 +77,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
       closeSettings: () => setSettingsOpen(false),
       settingsOpen,
     }),
-    [consent, acceptAll, rejectOptional, savePreferences, settingsOpen]
+    [consent, isReady, acceptAll, rejectOptional, savePreferences, settingsOpen]
   );
 
   return (

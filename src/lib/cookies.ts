@@ -40,14 +40,6 @@ export function subscribeConsent(callback: () => void): () => void {
   };
 }
 
-export function getConsentSnapshot(): CookieConsent | null {
-  return readConsent();
-}
-
-export function getConsentServerSnapshot(): CookieConsent | null {
-  return null;
-}
-
 export function hasAnalyticsConsent(consent: CookieConsent | null): boolean {
   return consent?.analytics === true;
 }

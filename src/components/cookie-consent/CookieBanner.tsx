@@ -56,6 +56,7 @@ function SettingsPanel({
 
 export function CookieBanner() {
   const {
+    isReady,
     showBanner,
     settingsOpen,
     consent,
@@ -66,7 +67,7 @@ export function CookieBanner() {
     closeSettings,
   } = useCookieConsent();
 
-  if (!showBanner && !settingsOpen) return null;
+  if (!isReady || (!showBanner && !settingsOpen)) return null;
 
   return (
     <div

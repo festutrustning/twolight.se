@@ -60,7 +60,9 @@ export function Footer() {
         </div>
 
         <p className="mt-10 border-t border-white/5 pt-6 text-xs text-[#6b6660]">
-          © {new Date().getFullYear()} {SITE.name}. En självständig kunskapssajt om ljusdesign.
+          ©{" "}
+          <span suppressHydrationWarning>{new Date().getFullYear()}</span> {SITE.name}. En
+          självständig kunskapssajt om ljusdesign.
           <FooterLegalLinks />
         </p>
       </div>
