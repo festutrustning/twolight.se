@@ -95,11 +95,13 @@ export function HeroBackground({ image }: HeroBackgroundProps) {
         unoptimized
         priority
         sizes="100vw"
-        className="object-cover object-center opacity-40"
+        className="object-cover object-center scale-105"
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#08080c]/60 via-[#08080c]/80 to-[#08080c]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,184,109,0.08),transparent_60%)]" />
+      {/* Läsbar text vänster, synlig ljusbild höger */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#08080c]/95 via-[#08080c]/75 to-[#08080c]/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#08080c] via-[#08080c]/40 to-[#08080c]/30" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(232,184,109,0.12),transparent_55%)]" />
     </div>
   );
 }

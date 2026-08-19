@@ -11,11 +11,11 @@ export type ImageAsset = {
 export const IMAGES = {
   hero: {
     src: "/images/hero.jpg",
-    alt: "Publik på konsert med färgstarka scenljus och ljusstrålar",
-    width: 1600,
-    height: 1067,
-    credit: "Unsplash / Nicolás Flor",
-    creditUrl: "https://unsplash.com/photos/cP5YX8I_yCQ",
+    alt: "Konsertscen med kraftfull scenbelysning och ljusstrålar över publik",
+    width: 1920,
+    height: 1280,
+    credit: "Unsplash / Howen",
+    creditUrl: "https://unsplash.com/photos/bo8XlhXNrE8",
   },
   beforeVenue: {
     src: "/images/before-venue.jpg",
