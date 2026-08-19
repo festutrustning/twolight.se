@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { ContentPage } from "@/lib/content";
+import { getPageImage } from "@/lib/images";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { HandoffCtaBlock } from "./HandoffCta";
-import { VisualPlaceholder } from "./VisualPlaceholder";
+import { ContentImage } from "./ContentImage";
 import { JsonLd } from "./JsonLd";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
@@ -11,6 +12,7 @@ type ContentPageTemplateProps = {
 };
 
 export function ContentPageTemplate({ page }: ContentPageTemplateProps) {
+  const pageImage = getPageImage(page.path);
   const breadcrumbs = [
     { name: "Twolight", path: "/" },
     ...(page.isGuide
@@ -47,12 +49,9 @@ export function ContentPageTemplate({ page }: ContentPageTemplateProps) {
         </div>
 
         <div className="mx-auto mt-12 max-w-5xl px-6">
-          <VisualPlaceholder
-            alt={`Visuell illustration: ${page.h1}`}
-            gradient="from-amber-950/50 via-neutral-900 to-neutral-950"
-            aspect="hero"
-            label="Bild kommer"
-          />
+          {pageImage && (
+            <ContentImage image={pageImage} aspect="hero" overlay="gradient" />
+          )}
         </div>
 
         <div className="mx-auto max-w-3xl px-6 pt-16">

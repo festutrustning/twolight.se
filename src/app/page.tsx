@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { TopicGrid } from "@/components/TopicGrid";
-import { BeforeAfterPlaceholder } from "@/components/VisualPlaceholder";
+import { BeforeAfterImages, HeroBackground } from "@/components/ContentImage";
+import { getImage } from "@/lib/images";
 import { SITE } from "@/lib/site";
 
 export default function HomePage() {
+  const heroImage = getImage("hero");
+
   return (
     <>
       {/* Hero */}
       <section className="relative flex min-h-[90vh] items-end overflow-hidden pt-24">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-[#08080c] to-[#08080c]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,184,109,0.12),transparent_60%)]" />
+        <div className="absolute inset-0">
+          <HeroBackground image={heroImage} />
+        </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#e8b86d]/30 to-transparent" />
 
         <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-32">
@@ -53,7 +57,7 @@ export default function HomePage() {
             Skillnaden mellan vitt arbetsljus och genomtänkt ljussättning är det vi utforskar.
           </p>
           <div className="mt-10">
-            <BeforeAfterPlaceholder />
+            <BeforeAfterImages />
           </div>
         </div>
       </section>
