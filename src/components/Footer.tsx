@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FooterLegalLinks } from "@/components/FooterLegalLinks";
 import { CONTACT, SITE } from "@/lib/site";
 
 export function Footer() {
@@ -25,6 +26,9 @@ export function Footer() {
             </Link>
             <Link href="/uplights" className="text-sm text-[#9a958d] hover:text-[#f5f0e8]">
               Uplights
+            </Link>
+            <Link href="/integritet" className="text-sm text-[#9a958d] hover:text-[#f5f0e8]">
+              Integritet
             </Link>
           </nav>
 
@@ -57,6 +61,7 @@ export function Footer() {
 
         <p className="mt-10 border-t border-white/5 pt-6 text-xs text-[#6b6660]">
           © {new Date().getFullYear()} {SITE.name}. En självständig kunskapssajt om ljusdesign.
+          <FooterLegalLinks />
         </p>
       </div>
     </footer>

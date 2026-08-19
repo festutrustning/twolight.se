@@ -1,3 +1,5 @@
+import { hasAnalyticsConsent, readConsent } from "./cookies";
+
 export type AnalyticsEvent =
   | { name: "page_view"; params: { page_path: string; page_title: string } }
   | {
@@ -26,6 +28,7 @@ declare global {
 
 export function trackEvent(event: AnalyticsEvent): void {
   if (typeof window === "undefined") return;
+  if (!hasAnalyticsConsent(readConsent())) return;
 
   const payload = { ...event.params, event: event.name };
 

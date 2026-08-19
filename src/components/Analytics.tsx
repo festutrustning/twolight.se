@@ -4,13 +4,15 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { getGaMeasurementId, trackEvent } from "@/lib/analytics";
+import { useCookieConsent } from "@/components/cookie-consent/CookieConsentProvider";
 
 export function Analytics() {
   const pathname = usePathname();
   const gaId = getGaMeasurementId();
+  const { analyticsAllowed, isReady } = useCookieConsent();
 
   useEffect(() => {
-    if (!pathname) return;
+    if (!pathname || !isReady || !analyticsAllowed) return;
     trackEvent({
       name: "page_view",
       params: {
@@ -18,9 +20,9 @@ export function Analytics() {
         page_title: document.title,
       },
     });
-  }, [pathname]);
+  }, [pathname, analyticsAllowed, isReady]);
 
-  if (!gaId) return null;
+  if (!gaId || !analyticsAllowed) return null;
 
   return (
     <>

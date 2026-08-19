@@ -403,6 +403,7 @@ export const ALL_ROUTES = [
     priority: p.path.includes("ljussattning") ? 0.9 : 0.8,
   })),
   { path: "/guider", changefreq: "monthly" as const, priority: 0.7 },
+  { path: "/integritet", changefreq: "yearly" as const, priority: 0.3 },
 ];
 
 export function getPageByPath(path: string): ContentPage | undefined {
