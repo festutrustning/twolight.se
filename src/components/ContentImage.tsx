@@ -13,10 +13,10 @@ type ContentImageProps = {
 };
 
 const aspectClasses: Record<AspectVariant, string> = {
-  hero: "aspect-[21/9] min-h-[280px] md:min-h-[420px]",
-  wide: "aspect-[16/9]",
+  hero: "aspect-[4/3] min-h-[200px] sm:aspect-[16/9] sm:min-h-[260px] md:aspect-[21/9] md:min-h-[420px]",
+  wide: "aspect-[4/3] sm:aspect-[16/9]",
   square: "aspect-square",
-  "before-after": "aspect-[16/10]",
+  "before-after": "aspect-[4/3] sm:aspect-[16/10]",
   card: "aspect-[4/3]",
 };
 
@@ -95,12 +95,12 @@ export function HeroBackground({ image }: HeroBackgroundProps) {
         unoptimized
         priority
         sizes="100vw"
-        className="object-cover object-center scale-105"
+        className="object-cover object-center"
         aria-hidden="true"
       />
       {/* Läsbar text vänster, synlig ljusbild höger */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#08080c]/95 via-[#08080c]/75 to-[#08080c]/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#08080c] via-[#08080c]/40 to-[#08080c]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#08080c]/95 via-[#08080c]/90 to-[#08080c]/80 md:via-[#08080c]/75 md:to-[#08080c]/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#08080c] via-[#08080c]/50 to-[#08080c]/35 md:via-[#08080c]/40 md:to-[#08080c]/30" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(232,184,109,0.12),transparent_55%)]" />
     </div>
   );

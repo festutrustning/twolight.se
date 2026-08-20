@@ -28,19 +28,19 @@ export default function GuiderPage() {
           __html: JSON.stringify(breadcrumbSchema(breadcrumbs)),
         }}
       />
-      <div className="mx-auto max-w-3xl px-6 pt-32 pb-20">
+      <div className="mx-auto max-w-3xl px-4 pt-24 pb-20 sm:px-6 sm:pt-32">
         <Breadcrumbs items={breadcrumbs} />
-        <h1 className="font-display text-4xl text-[#f5f0e8] md:text-5xl">Guider</h1>
-        <p className="mt-6 text-lg leading-relaxed text-[#9a958d]">
+        <h1 className="font-display text-3xl text-[#f5f0e8] sm:text-4xl md:text-5xl">Guider</h1>
+        <p className="mt-4 text-base leading-relaxed text-[#9a958d] sm:mt-6 sm:text-lg">
           Djupgående guider om ljussättning — skrivna för dig som planerar event,
           inte för tekniker som redan kan allt.
         </p>
 
-        <div className="mt-10 -mx-6 max-w-none px-0 sm:mx-0 sm:max-w-none sm:px-0">
+        <div className="mt-8 sm:mt-10">
           <ContentImage image={getImage("guider")} aspect="wide" overlay="gradient" />
         </div>
 
-        <ul className="mt-12 space-y-6">
+        <ul className="mt-10 space-y-6 sm:mt-12">
           {GUIDES.map((guide) => {
             const image = getPageImage(guide.path);
             return (
@@ -50,7 +50,7 @@ export default function GuiderPage() {
                   className="group block overflow-hidden rounded-sm border border-white/5 bg-[#111118] transition-colors hover:border-[#e8b86d]/30"
                 >
                   {image && (
-                    <div className="relative aspect-[21/9] w-full">
+                    <div className="relative aspect-[16/10] w-full sm:aspect-[21/9]">
                       <Image
                         src={image.src}
                         alt={image.alt}

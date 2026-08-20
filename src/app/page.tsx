@@ -10,35 +10,35 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[90vh] items-end overflow-hidden pt-24">
+      <section className="relative flex min-h-[75svh] items-end overflow-hidden pt-20 sm:min-h-[85vh] sm:pt-24">
         <div className="absolute inset-0">
           <HeroBackground image={heroImage} />
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#e8b86d]/30 to-transparent" />
+        <div className="absolute right-0 bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-[#e8b86d]/30 to-transparent" />
 
-        <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-32">
-          <p className="text-xs tracking-[0.3em] text-[#e8b86d] uppercase">
+        <div className="relative mx-auto w-full max-w-6xl px-4 pt-20 pb-12 sm:px-6 sm:pt-32 sm:pb-20">
+          <p className="text-[10px] tracking-[0.15em] text-[#e8b86d] uppercase sm:text-xs sm:tracking-[0.3em]">
             Inspiration &amp; kunskap
           </p>
-          <h1 className="mt-4 font-display text-5xl leading-[1.1] text-[#f5f0e8] md:text-7xl lg:text-8xl">
+          <h1 className="mt-3 font-display text-4xl leading-[1.05] text-[#f5f0e8] sm:mt-4 sm:text-5xl md:text-7xl lg:text-8xl">
             {SITE.name}
           </h1>
-          <p className="mt-6 max-w-xl font-display text-2xl text-[#c4bfb6] md:text-3xl">
+          <p className="mt-4 max-w-xl font-display text-xl text-[#c4bfb6] sm:mt-6 sm:text-2xl md:text-3xl">
             {SITE.tagline}
           </p>
-          <p className="mt-4 max-w-lg text-base leading-relaxed text-[#9a958d]">
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-[#9a958d] sm:text-base">
             {SITE.description}
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
               href="/eventbelysning"
-              className="rounded-sm border border-[#e8b86d]/40 bg-[#e8b86d]/10 px-6 py-3 text-sm tracking-wide text-[#e8b86d] transition-colors hover:bg-[#e8b86d]/20"
+              className="rounded-sm border border-[#e8b86d]/40 bg-[#e8b86d]/10 px-6 py-3 text-center text-sm tracking-wide text-[#e8b86d] transition-colors hover:bg-[#e8b86d]/20 sm:text-left"
             >
               Utforska eventbelysning
             </Link>
             <Link
               href="/guider"
-              className="rounded-sm border border-white/10 px-6 py-3 text-sm tracking-wide text-[#9a958d] transition-colors hover:border-white/20 hover:text-[#f5f0e8]"
+              className="rounded-sm border border-white/10 px-6 py-3 text-center text-sm tracking-wide text-[#9a958d] transition-colors hover:border-white/20 hover:text-[#f5f0e8] sm:text-left"
             >
               Läs guider
             </Link>
@@ -47,9 +47,9 @@ export default function HomePage() {
       </section>
 
       {/* Before / After */}
-      <section className="border-t border-white/5 bg-[#06060a] py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <h2 className="font-display text-3xl text-[#f5f0e8] md:text-4xl">
+      <section className="border-t border-white/5 bg-[#06060a] py-14 sm:py-20">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <h2 className="font-display text-2xl text-[#f5f0e8] sm:text-3xl md:text-4xl">
             Samma lokal. Helt annan känsla.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#9a958d]">
@@ -63,9 +63,9 @@ export default function HomePage() {
       </section>
 
       {/* Topics */}
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="font-display text-3xl text-[#f5f0e8] md:text-4xl">
+      <section className="py-14 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 className="font-display text-2xl text-[#f5f0e8] sm:text-3xl md:text-4xl">
             Utforska ljusdesign
           </h2>
           <p className="mt-4 max-w-2xl text-base text-[#9a958d]">
@@ -79,9 +79,9 @@ export default function HomePage() {
       </section>
 
       {/* Editorial statement */}
-      <section className="border-t border-white/5 py-20">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <blockquote className="font-display text-2xl leading-relaxed text-[#c4bfb6] md:text-3xl">
+      <section className="border-t border-white/5 py-14 sm:py-20">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+          <blockquote className="font-display text-xl leading-relaxed text-[#c4bfb6] sm:text-2xl md:text-3xl">
             &ldquo;Vi säljer inte ljus — vi hjälper dig förstå vad ljus kan göra med ett rum.&rdquo;
           </blockquote>
           <p className="mt-6 text-sm text-[#6b6660]">

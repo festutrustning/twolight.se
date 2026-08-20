@@ -24,7 +24,7 @@ export function HandoffCtaBlock({ handoff, pagePath }: HandoffCtaProps) {
       : "outbound_click_skaneevent";
 
   return (
-    <aside className="mt-16 rounded-sm border border-[#e8b86d]/20 bg-[#111118] p-8">
+    <aside className="mt-12 rounded-sm border border-[#e8b86d]/20 bg-[#111118] p-5 sm:mt-16 sm:p-8">
       <h2 className="font-display text-xl text-[#f5f0e8]">{handoff.heading}</h2>
       <p className="mt-3 text-sm leading-relaxed text-[#9a958d]">{handoff.body}</p>
       <a

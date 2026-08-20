@@ -38,23 +38,23 @@ export function ContentPageTemplate({ page }: ContentPageTemplateProps) {
     <>
       <JsonLd data={schemas} />
       <article className="pb-20">
-        <div className="mx-auto max-w-3xl px-6 pt-32">
+        <div className="mx-auto max-w-3xl px-4 pt-24 pb-8 sm:px-6 sm:pt-32">
           <Breadcrumbs items={breadcrumbs} />
           <header>
-            <h1 className="font-display text-4xl leading-tight text-[#f5f0e8] md:text-5xl">
+            <h1 className="font-display text-3xl leading-tight text-[#f5f0e8] sm:text-4xl md:text-5xl">
               {page.h1}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-[#9a958d]">{page.intro}</p>
+            <p className="mt-4 text-base leading-relaxed text-[#9a958d] sm:mt-6 sm:text-lg">{page.intro}</p>
           </header>
         </div>
 
-        <div className="mx-auto mt-12 max-w-5xl px-6">
+        <div className="mx-auto mt-8 max-w-5xl px-4 sm:mt-12 sm:px-6">
           {pageImage && (
             <ContentImage image={pageImage} aspect="hero" overlay="gradient" />
           )}
         </div>
 
-        <div className="mx-auto max-w-3xl px-6 pt-16">
+        <div className="mx-auto max-w-3xl px-4 pt-12 sm:px-6 sm:pt-16">
           {page.sections.map((section) => (
             <section key={section.id} id={section.id} className="mb-14">
               <h2 className="font-display text-2xl text-[#f5f0e8]">{section.heading}</h2>

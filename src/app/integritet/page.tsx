@@ -25,12 +25,12 @@ export default function IntegritetPage() {
           __html: JSON.stringify(breadcrumbSchema(breadcrumbs)),
         }}
       />
-      <div className="mx-auto max-w-3xl px-6 pt-32 pb-20">
+      <div className="mx-auto max-w-3xl px-4 pt-24 pb-20 sm:px-6 sm:pt-32">
         <Breadcrumbs items={breadcrumbs} />
-        <h1 className="font-display text-4xl text-[#f5f0e8] md:text-5xl">
+        <h1 className="font-display text-3xl text-[#f5f0e8] sm:text-4xl md:text-5xl">
           Integritet och cookies
         </h1>
-        <p className="mt-6 text-lg leading-relaxed text-[#9a958d]">
+        <p className="mt-4 text-base leading-relaxed text-[#9a958d] sm:mt-6 sm:text-lg">
           {SITE.name} är en kunskapssajt. Vi samlar endast in det som behövs för att
           förbättra innehållet — och endast med ditt samtycke när det gäller analys.
         </p>

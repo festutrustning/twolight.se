@@ -5,7 +5,7 @@ import { CONTACT, SITE } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="border-t border-white/5 bg-[#06060a]">
-      <div className="mx-auto max-w-6xl px-6 py-12">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <p className="font-display text-lg tracking-[0.15em] text-[#f5f0e8]">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -25,6 +25,12 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#08080c",
+};
+
 export const metadata: Metadata = buildMetadata({
   title: SITE.name,
   description: SITE.description,
@@ -34,12 +40,12 @@ export const metadata: Metadata = buildMetadata({
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="sv" className={`${cormorant.variable} ${dmSans.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">
+      <body className="flex min-h-full flex-col overflow-x-hidden antialiased">
         <CookieConsentProvider>
           <JsonLd data={[organizationSchema(), websiteSchema()]} />
           <Analytics />
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="min-w-0 flex-1">{children}</main>
           <Footer />
           <CookieBanner />
         </CookieConsentProvider>
